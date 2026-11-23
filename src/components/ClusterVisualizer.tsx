@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { SemanticCluster } from '../types';
 import { Layers, TrendingUp, AlertCircle, Network, Grid, Sparkles } from 'lucide-react';
+import { ScrollReveal } from './ScrollReveal';
 
 interface ClusterVisualizerProps {
   clusters: SemanticCluster[];
@@ -31,16 +32,22 @@ export const ClusterVisualizer: React.FC<ClusterVisualizerProps> = ({
       {/* Section Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#26292D] text-[#EDBF9B] text-xs font-semibold mb-2 border border-[#3C4044]">
-            <Layers className="w-3.5 h-3.5 text-[#FD7B41]" />
-            Objective 1: NLP Semantic Similarity & Root-Cause Clustering
-          </div>
-          <h2 className="font-editorial text-2xl sm:text-3xl font-bold text-[#DDDCDB]">
-            Semantic Problem Clusters
-          </h2>
-          <p className="text-xs sm:text-sm text-[#DDDCDB]/70 mt-1 max-w-2xl">
-            Unfiltered complaints that vary wildly in vocabulary are embedded into vector space and clustered into semantic centroids to isolate the single core unmet need.
-          </p>
+          <ScrollReveal delayMs={50}>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#26292D] text-[#EDBF9B] text-xs font-semibold mb-2 border border-[#3C4044]">
+              <Layers className="w-3.5 h-3.5 text-[#FD7B41]" />
+              Objective 1: NLP Semantic Similarity & Root-Cause Clustering
+            </div>
+          </ScrollReveal>
+          <ScrollReveal delayMs={150}>
+            <h2 className="font-editorial text-2xl sm:text-3xl font-bold text-[#DDDCDB]">
+              Semantic Problem Clusters
+            </h2>
+          </ScrollReveal>
+          <ScrollReveal delayMs={250}>
+            <p className="text-xs sm:text-sm text-[#DDDCDB]/70 mt-1 max-w-2xl">
+              Unfiltered complaints that vary wildly in vocabulary are embedded into vector space and clustered into semantic centroids to isolate the single core unmet need.
+            </p>
+          </ScrollReveal>
         </div>
 
         {/* View Mode Toggle & Filter Clear */}

@@ -9,6 +9,7 @@ import { CustomNeedAnalyzer } from './components/CustomNeedAnalyzer';
 import { CompetitorMatrix } from './components/CompetitorMatrix';
 import { EmpathyCanvas } from './components/EmpathyCanvas';
 import { Footer } from './components/Footer';
+import { ScrollReveal } from './components/ScrollReveal';
 
 import { INITIAL_OPPORTUNITIES, INITIAL_CLUSTERS, INITIAL_SIGNALS } from './data/seeds';
 import { Opportunity, Sector } from './types';
@@ -79,7 +80,7 @@ export const App: React.FC = () => {
         opportunitiesCount={opportunities.length}
       />
 
-      {/* Hero Section */}
+      {/* Hero Section with Scroll Fade-In on Title & Description */}
       <HeroSection
         onExploreClick={() => {
           setActiveTab('opportunities');
@@ -95,167 +96,172 @@ export const App: React.FC = () => {
 
       {/* Main Content Area in Black & Calcite Orange Theme */}
       <main id="main-feed" className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-10">
-        {/* Navigation Sub-Bar for Quick Switching */}
-        <div className="flex flex-wrap items-center justify-between gap-4 pb-6 mb-8 border-b border-[#3C4044]">
-          <div className="flex items-center gap-2.5">
-            <span className="text-xs font-bold text-[#FD7B41] uppercase tracking-wider">Active Workspace View:</span>
-            <span className="text-sm font-semibold text-[#DDDCDB]">
-              {activeTab === 'opportunities' && 'Objective 4: Prioritized Innovation Opportunities'}
-              {activeTab === 'clusters' && 'Objective 1: NLP Semantic Problem Clusters'}
-              {activeTab === 'empathy' && 'Design Thinking: Empathy Map & HMW Ideation Canvas'}
-              {activeTab === 'signals' && 'Objective 2: Raw Public Signal Stream'}
-              {activeTab === 'analyzer' && 'Interactive NLP Need Discovery Studio'}
-              {activeTab === 'competitors' && 'Objective 3: Incumbent Limitation Matrix'}
-            </span>
-          </div>
+        {/* Navigation Sub-Bar with Scroll Reveal */}
+        <ScrollReveal delayMs={100}>
+          <div className="flex flex-wrap items-center justify-between gap-4 pb-6 mb-8 border-b border-[#3C4044]">
+            <div className="flex items-center gap-2.5">
+              <span className="text-xs font-bold text-[#FD7B41] uppercase tracking-wider">Active Workspace View:</span>
+              <span className="text-sm font-semibold text-[#DDDCDB]">
+                {activeTab === 'opportunities' && 'Objective 4: Prioritized Innovation Opportunities'}
+                {activeTab === 'clusters' && 'Objective 1: NLP Semantic Problem Clusters'}
+                {activeTab === 'empathy' && 'Design Thinking: Empathy Map & HMW Ideation Canvas'}
+                {activeTab === 'signals' && 'Objective 2: Raw Public Signal Stream'}
+                {activeTab === 'analyzer' && 'Interactive NLP Need Discovery Studio'}
+                {activeTab === 'competitors' && 'Objective 3: Incumbent Limitation Matrix'}
+              </span>
+            </div>
 
-          <div className="flex flex-wrap items-center gap-2">
-            <button
-              onClick={() => setActiveTab('opportunities')}
-              className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
-                activeTab === 'opportunities'
-                  ? 'bg-[#FD7B41] text-[#1B1D1F] shadow-glow-orange font-bold'
-                  : 'bg-[#26292D] text-[#DDDCDB]/70 hover:text-[#DDDCDB] border border-[#3C4044] hover:bg-[#3C4044]'
-              }`}
-            >
-              Opportunities ({opportunities.length})
-            </button>
-            <button
-              onClick={() => setActiveTab('clusters')}
-              className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
-                activeTab === 'clusters'
-                  ? 'bg-[#FD7B41] text-[#1B1D1F] shadow-glow-orange font-bold'
-                  : 'bg-[#26292D] text-[#DDDCDB]/70 hover:text-[#DDDCDB] border border-[#3C4044] hover:bg-[#3C4044]'
-              }`}
-            >
-              Clusters ({clusters.length})
-            </button>
-            <button
-              onClick={() => setActiveTab('empathy')}
-              className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
-                activeTab === 'empathy'
-                  ? 'bg-[#FD7B41] text-[#1B1D1F] shadow-glow-orange font-bold'
-                  : 'bg-[#26292D] text-[#DDDCDB]/70 hover:text-[#DDDCDB] border border-[#3C4044] hover:bg-[#3C4044]'
-              }`}
-            >
-              Empathy & HMW
-            </button>
-            <button
-              onClick={() => setActiveTab('competitors')}
-              className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
-                activeTab === 'competitors'
-                  ? 'bg-[#FD7B41] text-[#1B1D1F] shadow-glow-orange font-bold'
-                  : 'bg-[#26292D] text-[#DDDCDB]/70 hover:text-[#DDDCDB] border border-[#3C4044] hover:bg-[#3C4044]'
-              }`}
-            >
-              Competitor Flaws
-            </button>
-            <button
-              onClick={() => setActiveTab('signals')}
-              className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
-                activeTab === 'signals'
-                  ? 'bg-[#FD7B41] text-[#1B1D1F] shadow-glow-orange font-bold'
-                  : 'bg-[#26292D] text-[#DDDCDB]/70 hover:text-[#DDDCDB] border border-[#3C4044] hover:bg-[#3C4044]'
-              }`}
-            >
-              Raw Signals
-            </button>
+            <div className="flex flex-wrap items-center gap-2">
+              <button
+                onClick={() => setActiveTab('opportunities')}
+                className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+                  activeTab === 'opportunities'
+                    ? 'bg-[#FD7B41] text-[#1B1D1F] shadow-glow-orange font-bold'
+                    : 'bg-[#26292D] text-[#DDDCDB]/70 hover:text-[#DDDCDB] border border-[#3C4044] hover:bg-[#3C4044]'
+                }`}
+              >
+                Opportunities ({opportunities.length})
+              </button>
+              <button
+                onClick={() => setActiveTab('clusters')}
+                className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+                  activeTab === 'clusters'
+                    ? 'bg-[#FD7B41] text-[#1B1D1F] shadow-glow-orange font-bold'
+                    : 'bg-[#26292D] text-[#DDDCDB]/70 hover:text-[#DDDCDB] border border-[#3C4044] hover:bg-[#3C4044]'
+                }`}
+              >
+                Clusters ({clusters.length})
+              </button>
+              <button
+                onClick={() => setActiveTab('empathy')}
+                className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+                  activeTab === 'empathy'
+                    ? 'bg-[#FD7B41] text-[#1B1D1F] shadow-glow-orange font-bold'
+                    : 'bg-[#26292D] text-[#DDDCDB]/70 hover:text-[#DDDCDB] border border-[#3C4044] hover:bg-[#3C4044]'
+                }`}
+              >
+                Empathy & HMW
+              </button>
+              <button
+                onClick={() => setActiveTab('competitors')}
+                className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+                  activeTab === 'competitors'
+                    ? 'bg-[#FD7B41] text-[#1B1D1F] shadow-glow-orange font-bold'
+                    : 'bg-[#26292D] text-[#DDDCDB]/70 hover:text-[#DDDCDB] border border-[#3C4044] hover:bg-[#3C4044]'
+                }`}
+              >
+                Competitor Flaws
+              </button>
+              <button
+                onClick={() => setActiveTab('signals')}
+                className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+                  activeTab === 'signals'
+                    ? 'bg-[#FD7B41] text-[#1B1D1F] shadow-glow-orange font-bold'
+                    : 'bg-[#26292D] text-[#DDDCDB]/70 hover:text-[#DDDCDB] border border-[#3C4044] hover:bg-[#3C4044]'
+                }`}
+              >
+                Raw Signals
+              </button>
+            </div>
           </div>
-        </div>
+        </ScrollReveal>
 
         {/* TAB 1: OPPORTUNITIES FEED */}
         {activeTab === 'opportunities' && (
           <div className="space-y-8">
             {/* Filter & Search Toolbar in Calcite Theme */}
-            <div className="bg-[#26292D] border border-[#3C4044] rounded-2xl p-5 shadow-glow-dark space-y-4">
-              <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4">
-                {/* Search Input */}
-                <div className="relative flex-1">
-                  <Search className="w-4 h-4 text-[#EDBF9B] absolute left-3.5 top-1/2 -translate-y-1/2" />
-                  <input
-                    type="text"
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                    placeholder="Search unmet needs by keyword, persona, or HMW..."
-                    className="w-full pl-10 pr-4 py-2 bg-[#1B1D1F] border border-[#3C4044] rounded-xl text-xs sm:text-sm text-[#DDDCDB] placeholder-[#DDDCDB]/40 focus:outline-none focus:border-[#FD7B41] focus:ring-1 focus:ring-[#FD7B41]"
-                  />
-                  {searchQuery && (
-                    <button
-                      onClick={() => setSearchQuery('')}
-                      className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-[#EDBF9B] hover:text-[#DDDCDB]"
-                    >
-                      Clear
-                    </button>
-                  )}
-                </div>
-
-                {/* Score Slider & Sort */}
-                <div className="flex flex-wrap items-center gap-4">
-                  {/* Min Score Filter */}
-                  <div className="flex items-center gap-3 bg-[#1B1D1F] px-3.5 py-1.5 rounded-xl border border-[#3C4044] text-xs">
-                    <span className="text-[#EDBF9B] flex items-center gap-1">
-                      <Award className="w-3.5 h-3.5 text-[#FD7B41]" />
-                      Min Score:
-                    </span>
+            <ScrollReveal delayMs={150}>
+              <div className="bg-[#26292D] border border-[#3C4044] rounded-2xl p-5 shadow-glow-dark space-y-4">
+                <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4">
+                  {/* Search Input */}
+                  <div className="relative flex-1">
+                    <Search className="w-4 h-4 text-[#EDBF9B] absolute left-3.5 top-1/2 -translate-y-1/2" />
                     <input
-                      type="range"
-                      min="70"
-                      max="95"
-                      value={minScore}
-                      onChange={(e) => setMinScore(Number(e.target.value))}
-                      className="w-24 accent-[#FD7B41] cursor-pointer"
+                      type="text"
+                      value={searchQuery}
+                      onChange={(e) => setSearchQuery(e.target.value)}
+                      placeholder="Search unmet needs by keyword, persona, or HMW..."
+                      className="w-full pl-10 pr-4 py-2 bg-[#1B1D1F] border border-[#3C4044] rounded-xl text-xs sm:text-sm text-[#DDDCDB] placeholder-[#DDDCDB]/40 focus:outline-none focus:border-[#FD7B41] focus:ring-1 focus:ring-[#FD7B41]"
                     />
-                    <span className="font-bold text-[#FD7B41] font-mono">{minScore}</span>
+                    {searchQuery && (
+                      <button
+                        onClick={() => setSearchQuery('')}
+                        className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-[#EDBF9B] hover:text-[#DDDCDB]"
+                      >
+                        Clear
+                      </button>
+                    )}
                   </div>
 
-                  {/* Sort By Dropdown */}
-                  <div className="flex items-center gap-2 bg-[#1B1D1F] px-3 py-1.5 rounded-xl border border-[#3C4044] text-xs">
-                    <ArrowUpDown className="w-3.5 h-3.5 text-[#FD7B41]" />
-                    <span className="text-[#EDBF9B]">Sort:</span>
-                    <select
-                      value={sortBy}
-                      onChange={(e) => setSortBy(e.target.value as any)}
-                      className="bg-transparent text-[#DDDCDB] focus:outline-none cursor-pointer"
-                    >
-                      <option value="score" className="bg-[#26292D] text-[#DDDCDB]">Opportunity Score</option>
-                      <option value="velocity" className="bg-[#26292D] text-[#DDDCDB]">Demand Velocity</option>
-                      <option value="impact" className="bg-[#26292D] text-[#DDDCDB]">Impact Severity</option>
-                    </select>
+                  {/* Score Slider & Sort */}
+                  <div className="flex flex-wrap items-center gap-4">
+                    {/* Min Score Filter */}
+                    <div className="flex items-center gap-3 bg-[#1B1D1F] px-3.5 py-1.5 rounded-xl border border-[#3C4044] text-xs">
+                      <span className="text-[#EDBF9B] flex items-center gap-1">
+                        <Award className="w-3.5 h-3.5 text-[#FD7B41]" />
+                        Min Score:
+                      </span>
+                      <input
+                        type="range"
+                        min="70"
+                        max="95"
+                        value={minScore}
+                        onChange={(e) => setMinScore(Number(e.target.value))}
+                        className="w-24 accent-[#FD7B41] cursor-pointer"
+                      />
+                      <span className="font-bold text-[#FD7B41] font-mono">{minScore}</span>
+                    </div>
+
+                    {/* Sort By Dropdown */}
+                    <div className="flex items-center gap-2 bg-[#1B1D1F] px-3 py-1.5 rounded-xl border border-[#3C4044] text-xs">
+                      <ArrowUpDown className="w-3.5 h-3.5 text-[#FD7B41]" />
+                      <span className="text-[#EDBF9B]">Sort:</span>
+                      <select
+                        value={sortBy}
+                        onChange={(e) => setSortBy(e.target.value as any)}
+                        className="bg-transparent text-[#DDDCDB] focus:outline-none cursor-pointer"
+                      >
+                        <option value="score" className="bg-[#26292D] text-[#DDDCDB]">Opportunity Score</option>
+                        <option value="velocity" className="bg-[#26292D] text-[#DDDCDB]">Demand Velocity</option>
+                        <option value="impact" className="bg-[#26292D] text-[#DDDCDB]">Impact Severity</option>
+                      </select>
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              {/* Sector Pills */}
-              <div className="flex flex-wrap items-center gap-2 pt-2 border-t border-[#3C4044]">
-                <span className="text-xs text-[#EDBF9B] flex items-center gap-1 font-medium mr-1">
-                  <Filter className="w-3 h-3 text-[#FD7B41]" />
-                  Domain:
-                </span>
-                {sectors.map((sec) => (
-                  <button
-                    key={sec}
-                    onClick={() => setSelectedSector(sec)}
-                    className={`px-3 py-1 rounded-lg text-xs font-medium transition-all ${
-                      selectedSector === sec
-                        ? 'bg-[#FD7B41] text-[#1B1D1F] font-bold shadow-glow-orange'
-                        : 'bg-[#1B1D1F] text-[#DDDCDB]/70 hover:text-[#DDDCDB] border border-[#3C4044] hover:border-[#FD7B41]/50'
-                    }`}
-                  >
-                    {sec}
-                  </button>
-                ))}
+                {/* Sector Pills */}
+                <div className="flex flex-wrap items-center gap-2 pt-2 border-t border-[#3C4044]">
+                  <span className="text-xs text-[#EDBF9B] flex items-center gap-1 font-medium mr-1">
+                    <Filter className="w-3 h-3 text-[#FD7B41]" />
+                    Domain:
+                  </span>
+                  {sectors.map((sec) => (
+                    <button
+                      key={sec}
+                      onClick={() => setSelectedSector(sec)}
+                      className={`px-3 py-1 rounded-lg text-xs font-medium transition-all ${
+                        selectedSector === sec
+                          ? 'bg-[#FD7B41] text-[#1B1D1F] font-bold shadow-glow-orange'
+                          : 'bg-[#1B1D1F] text-[#DDDCDB]/70 hover:text-[#DDDCDB] border border-[#3C4044] hover:border-[#FD7B41]/50'
+                      }`}
+                    >
+                      {sec}
+                    </button>
+                  ))}
+                </div>
               </div>
-            </div>
+            </ScrollReveal>
 
-            {/* Opportunities Cards Grid */}
+            {/* Opportunities Cards Grid with Staggered Scroll Reveal */}
             {filteredOpportunities.length > 0 ? (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {filteredOpportunities.map((opp) => (
-                  <OpportunityCard
-                    key={opp.id}
-                    opportunity={opp}
-                    onSelect={(selected) => setSelectedOpportunity(selected)}
-                  />
+                {filteredOpportunities.map((opp, index) => (
+                  <ScrollReveal key={opp.id} delayMs={(index % 3) * 120}>
+                    <OpportunityCard
+                      opportunity={opp}
+                      onSelect={(selected) => setSelectedOpportunity(selected)}
+                    />
+                  </ScrollReveal>
                 ))}
               </div>
             ) : (
@@ -284,46 +290,56 @@ export const App: React.FC = () => {
 
         {/* TAB 2: SEMANTIC CLUSTERS */}
         {activeTab === 'clusters' && (
-          <ClusterVisualizer
-            clusters={clusters}
-            selectedClusterId={selectedClusterId}
-            onSelectCluster={(id) => {
-              setSelectedClusterId(id);
-              if (id) {
-                const matched = clusters.find(c => c.id === id);
-                if (matched) {
-                  setSelectedSector(matched.sector);
-                  setActiveTab('opportunities');
+          <ScrollReveal delayMs={100}>
+            <ClusterVisualizer
+              clusters={clusters}
+              selectedClusterId={selectedClusterId}
+              onSelectCluster={(id) => {
+                setSelectedClusterId(id);
+                if (id) {
+                  const matched = clusters.find(c => c.id === id);
+                  if (matched) {
+                    setSelectedSector(matched.sector);
+                    setActiveTab('opportunities');
+                  }
                 }
-              }
-            }}
-          />
+              }}
+            />
+          </ScrollReveal>
         )}
 
         {/* TAB 3: DESIGN THINKING EMPATHY MAP & HMW CANVAS */}
         {activeTab === 'empathy' && (
-          <EmpathyCanvas opportunities={opportunities} />
+          <ScrollReveal delayMs={100}>
+            <EmpathyCanvas opportunities={opportunities} />
+          </ScrollReveal>
         )}
 
         {/* TAB 4: RAW SIGNAL STREAM */}
         {activeTab === 'signals' && (
-          <SignalStream signals={signals} />
+          <ScrollReveal delayMs={100}>
+            <SignalStream signals={signals} />
+          </ScrollReveal>
         )}
 
         {/* TAB 5: INTERACTIVE AI NEED STUDIO */}
         {activeTab === 'analyzer' && (
-          <CustomNeedAnalyzer
-            onOpportunityCreated={handleOpportunityCreated}
-            onViewDossier={(opp) => setSelectedOpportunity(opp)}
-          />
+          <ScrollReveal delayMs={100}>
+            <CustomNeedAnalyzer
+              onOpportunityCreated={handleOpportunityCreated}
+              onViewDossier={(opp) => setSelectedOpportunity(opp)}
+            />
+          </ScrollReveal>
         )}
 
         {/* TAB 6: INCUMBENT COMPETITOR MATRIX */}
         {activeTab === 'competitors' && (
-          <CompetitorMatrix
-            opportunities={opportunities}
-            onSelectOpportunity={(opp) => setSelectedOpportunity(opp)}
-          />
+          <ScrollReveal delayMs={100}>
+            <CompetitorMatrix
+              opportunities={opportunities}
+              onSelectOpportunity={(opp) => setSelectedOpportunity(opp)}
+            />
+          </ScrollReveal>
         )}
       </main>
 

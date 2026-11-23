@@ -1,6 +1,7 @@
 import React from 'react';
 import { Opportunity } from '../types';
 import { ShieldAlert, ArrowUpRight } from 'lucide-react';
+import { ScrollReveal } from './ScrollReveal';
 
 interface CompetitorMatrixProps {
   opportunities: Opportunity[];
@@ -15,16 +16,22 @@ export const CompetitorMatrix: React.FC<CompetitorMatrixProps> = ({
     <div className="space-y-6">
       {/* Header */}
       <div>
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#26292D] text-red-300 text-xs font-semibold mb-2 border border-red-500/30">
-          <ShieldAlert className="w-3.5 h-3.5 text-red-400" />
-          Objective 3: Incumbent Limitation & Competitor Void Evaluation
-        </div>
-        <h2 className="font-editorial text-2xl sm:text-3xl font-bold text-[#DDDCDB]">
-          Why Existing Solutions Fail the User
-        </h2>
-        <p className="text-xs sm:text-sm text-[#DDDCDB]/70 mt-1 max-w-2xl">
-          Systematic breakdown of incumbent software limitations, legacy architecture flaws, and customer grievances that create whitespace for new market entrants.
-        </p>
+        <ScrollReveal delayMs={50}>
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#26292D] text-red-300 text-xs font-semibold mb-2 border border-red-500/30">
+            <ShieldAlert className="w-3.5 h-3.5 text-red-400" />
+            Objective 3: Incumbent Limitation & Competitor Void Evaluation
+          </div>
+        </ScrollReveal>
+        <ScrollReveal delayMs={150}>
+          <h2 className="font-editorial text-2xl sm:text-3xl font-bold text-[#DDDCDB]">
+            Why Existing Solutions Fail the User
+          </h2>
+        </ScrollReveal>
+        <ScrollReveal delayMs={250}>
+          <p className="text-xs sm:text-sm text-[#DDDCDB]/70 mt-1 max-w-2xl">
+            Systematic breakdown of incumbent software limitations, legacy architecture flaws, and customer grievances that create whitespace for new market entrants.
+          </p>
+        </ScrollReveal>
       </div>
 
       {/* Incumbents Table */}

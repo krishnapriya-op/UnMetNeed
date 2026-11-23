@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { RawSignal, SignalSource } from '../types';
 import { Radio, ExternalLink, Flame, Copy, Check } from 'lucide-react';
+import { ScrollReveal } from './ScrollReveal';
 
 interface SignalStreamProps {
   signals: RawSignal[];
@@ -27,16 +28,22 @@ export const SignalStream: React.FC<SignalStreamProps> = ({ signals }) => {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#26292D] text-[#EDBF9B] text-xs font-semibold mb-2 border border-[#3C4044]">
-            <Radio className="w-3.5 h-3.5 text-[#FD7B41] animate-pulse" />
-            Objective 2: Multi-Source Internet Signal Ingestion
-          </div>
-          <h2 className="font-editorial text-2xl sm:text-3xl font-bold text-[#DDDCDB]">
-            Live Public Discussion Feed
-          </h2>
-          <p className="text-xs sm:text-sm text-[#DDDCDB]/70 mt-1 max-w-2xl">
-            Real customer complaints, forum threads, negative review rants, and research publication pain points analyzed by the NLP engine.
-          </p>
+          <ScrollReveal delayMs={50}>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#26292D] text-[#EDBF9B] text-xs font-semibold mb-2 border border-[#3C4044]">
+              <Radio className="w-3.5 h-3.5 text-[#FD7B41] animate-pulse" />
+              Objective 2: Multi-Source Internet Signal Ingestion
+            </div>
+          </ScrollReveal>
+          <ScrollReveal delayMs={150}>
+            <h2 className="font-editorial text-2xl sm:text-3xl font-bold text-[#DDDCDB]">
+              Live Public Discussion Feed
+            </h2>
+          </ScrollReveal>
+          <ScrollReveal delayMs={250}>
+            <p className="text-xs sm:text-sm text-[#DDDCDB]/70 mt-1 max-w-2xl">
+              Real customer complaints, forum threads, negative review rants, and research publication pain points analyzed by the NLP engine.
+            </p>
+          </ScrollReveal>
         </div>
 
         {/* Source Filter Pills */}
