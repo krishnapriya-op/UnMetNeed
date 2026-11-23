@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #1B1D1F;
+    color: #DDDCDB;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  h1, h2, h3, .font-editorial {
+    font-family: 'Libre Baskerville', Georgia, serif;
+  }
+}
+
+/* Custom scrollbars matching Calcite palette */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1B1D1F;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3C4044;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #FD7B41;
+}
+
+/* Calcite card utility */
+.calcite-card {
+  background: rgba(38, 41, 45, 0.85);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(221, 220, 219, 0.12);
+  box-shadow: 0 10px 30px -10px rgba(27, 29, 31, 0.6);
+}
+
+.calcite-card:hover {
+  border-color: rgba(253, 123, 65, 0.45);
+}
