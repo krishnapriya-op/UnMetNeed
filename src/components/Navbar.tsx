@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sparkles, BrainCircuit, Compass, Layers, Radio } from 'lucide-react';
+import { Sparkles, BrainCircuit, Compass, Layers, Radio, Heart } from 'lucide-react';
 
 interface NavbarProps {
   activeTab: string;
@@ -16,7 +16,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 }) => {
   return (
     <header className="sticky top-0 z-50 bg-[#1B1D1F]/90 backdrop-blur-md border-b border-[#3C4044] shadow-glow-dark">
-      {/* Main Nav Bar (Top Jain banner removed per request) */}
+      {/* Main Nav Bar */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         {/* Brand Logo */}
         <div className="flex items-center gap-3 cursor-pointer" onClick={() => setActiveTab('opportunities')}>
@@ -40,7 +40,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         <nav className="hidden md:flex items-center gap-1.5 bg-[#26292D] p-1.5 rounded-xl border border-[#3C4044]">
           <button
             onClick={() => setActiveTab('opportunities')}
-            className={`px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-2 ${
+            className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1.5 ${
               activeTab === 'opportunities'
                 ? 'bg-[#3C4044] text-[#FD7B41] shadow-sm border border-[#FD7B41]/30'
                 : 'text-[#DDDCDB]/70 hover:text-[#DDDCDB] hover:bg-[#3C4044]/40'
@@ -52,31 +52,43 @@ export const Navbar: React.FC<NavbarProps> = ({
 
           <button
             onClick={() => setActiveTab('clusters')}
-            className={`px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-2 ${
+            className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1.5 ${
               activeTab === 'clusters'
                 ? 'bg-[#3C4044] text-[#FD7B41] shadow-sm border border-[#FD7B41]/30'
                 : 'text-[#DDDCDB]/70 hover:text-[#DDDCDB] hover:bg-[#3C4044]/40'
             }`}
           >
             <Layers className="w-3.5 h-3.5" />
-            Semantic Clusters
+            Clusters
+          </button>
+
+          <button
+            onClick={() => setActiveTab('empathy')}
+            className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1.5 ${
+              activeTab === 'empathy'
+                ? 'bg-[#3C4044] text-[#FD7B41] shadow-sm border border-[#FD7B41]/30'
+                : 'text-[#DDDCDB]/70 hover:text-[#DDDCDB] hover:bg-[#3C4044]/40'
+            }`}
+          >
+            <Heart className="w-3.5 h-3.5" />
+            Empathy & HMW
           </button>
 
           <button
             onClick={() => setActiveTab('signals')}
-            className={`px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-2 ${
+            className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1.5 ${
               activeTab === 'signals'
                 ? 'bg-[#3C4044] text-[#FD7B41] shadow-sm border border-[#FD7B41]/30'
                 : 'text-[#DDDCDB]/70 hover:text-[#DDDCDB] hover:bg-[#3C4044]/40'
             }`}
           >
             <Radio className="w-3.5 h-3.5" />
-            Signal Feed ({signalsCount})
+            Signals ({signalsCount})
           </button>
 
           <button
             onClick={() => setActiveTab('analyzer')}
-            className={`px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-2 ${
+            className={`px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 ${
               activeTab === 'analyzer'
                 ? 'bg-[#FD7B41] text-[#1B1D1F] shadow-glow-orange'
                 : 'text-[#FD7B41] hover:bg-[#FD7B41]/10 border border-[#FD7B41]/30'

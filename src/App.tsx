@@ -7,6 +7,7 @@ import { ClusterVisualizer } from './components/ClusterVisualizer';
 import { SignalStream } from './components/SignalStream';
 import { CustomNeedAnalyzer } from './components/CustomNeedAnalyzer';
 import { CompetitorMatrix } from './components/CompetitorMatrix';
+import { EmpathyCanvas } from './components/EmpathyCanvas';
 import { Footer } from './components/Footer';
 
 import { INITIAL_OPPORTUNITIES, INITIAL_CLUSTERS, INITIAL_SIGNALS } from './data/seeds';
@@ -101,13 +102,14 @@ export const App: React.FC = () => {
             <span className="text-sm font-semibold text-[#DDDCDB]">
               {activeTab === 'opportunities' && 'Objective 4: Prioritized Innovation Opportunities'}
               {activeTab === 'clusters' && 'Objective 1: NLP Semantic Problem Clusters'}
+              {activeTab === 'empathy' && 'Design Thinking: Empathy Map & HMW Ideation Canvas'}
               {activeTab === 'signals' && 'Objective 2: Raw Public Signal Stream'}
               {activeTab === 'analyzer' && 'Interactive NLP Need Discovery Studio'}
               {activeTab === 'competitors' && 'Objective 3: Incumbent Limitation Matrix'}
             </span>
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex flex-wrap items-center gap-2">
             <button
               onClick={() => setActiveTab('opportunities')}
               className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
@@ -127,6 +129,16 @@ export const App: React.FC = () => {
               }`}
             >
               Clusters ({clusters.length})
+            </button>
+            <button
+              onClick={() => setActiveTab('empathy')}
+              className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+                activeTab === 'empathy'
+                  ? 'bg-[#FD7B41] text-[#1B1D1F] shadow-glow-orange font-bold'
+                  : 'bg-[#26292D] text-[#DDDCDB]/70 hover:text-[#DDDCDB] border border-[#3C4044] hover:bg-[#3C4044]'
+              }`}
+            >
+              Empathy & HMW
             </button>
             <button
               onClick={() => setActiveTab('competitors')}
@@ -288,12 +300,17 @@ export const App: React.FC = () => {
           />
         )}
 
-        {/* TAB 3: RAW SIGNAL STREAM */}
+        {/* TAB 3: DESIGN THINKING EMPATHY MAP & HMW CANVAS */}
+        {activeTab === 'empathy' && (
+          <EmpathyCanvas opportunities={opportunities} />
+        )}
+
+        {/* TAB 4: RAW SIGNAL STREAM */}
         {activeTab === 'signals' && (
           <SignalStream signals={signals} />
         )}
 
-        {/* TAB 4: INTERACTIVE AI NEED STUDIO */}
+        {/* TAB 5: INTERACTIVE AI NEED STUDIO */}
         {activeTab === 'analyzer' && (
           <CustomNeedAnalyzer
             onOpportunityCreated={handleOpportunityCreated}
@@ -301,7 +318,7 @@ export const App: React.FC = () => {
           />
         )}
 
-        {/* TAB 5: INCUMBENT COMPETITOR MATRIX */}
+        {/* TAB 6: INCUMBENT COMPETITOR MATRIX */}
         {activeTab === 'competitors' && (
           <CompetitorMatrix
             opportunities={opportunities}
