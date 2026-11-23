@@ -40,11 +40,10 @@ export const Navbar: React.FC<NavbarProps> = ({
         <nav className="hidden md:flex items-center gap-1.5 bg-[#26292D] p-1.5 rounded-xl border border-[#3C4044]">
           <button
             onClick={() => setActiveTab('opportunities')}
-            className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1.5 ${
-              activeTab === 'opportunities'
+            className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1.5 ${activeTab === 'opportunities'
                 ? 'bg-[#3C4044] text-[#FD7B41] shadow-sm border border-[#FD7B41]/30'
                 : 'text-[#DDDCDB]/70 hover:text-[#DDDCDB] hover:bg-[#3C4044]/40'
-            }`}
+              }`}
           >
             <Compass className="w-3.5 h-3.5" />
             Opportunities ({opportunitiesCount})
@@ -52,11 +51,10 @@ export const Navbar: React.FC<NavbarProps> = ({
 
           <button
             onClick={() => setActiveTab('clusters')}
-            className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1.5 ${
-              activeTab === 'clusters'
+            className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1.5 ${activeTab === 'clusters'
                 ? 'bg-[#3C4044] text-[#FD7B41] shadow-sm border border-[#FD7B41]/30'
                 : 'text-[#DDDCDB]/70 hover:text-[#DDDCDB] hover:bg-[#3C4044]/40'
-            }`}
+              }`}
           >
             <Layers className="w-3.5 h-3.5" />
             Clusters
@@ -64,11 +62,10 @@ export const Navbar: React.FC<NavbarProps> = ({
 
           <button
             onClick={() => setActiveTab('empathy')}
-            className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1.5 ${
-              activeTab === 'empathy'
+            className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1.5 ${activeTab === 'empathy'
                 ? 'bg-[#3C4044] text-[#FD7B41] shadow-sm border border-[#FD7B41]/30'
                 : 'text-[#DDDCDB]/70 hover:text-[#DDDCDB] hover:bg-[#3C4044]/40'
-            }`}
+              }`}
           >
             <Heart className="w-3.5 h-3.5" />
             Empathy & HMW
@@ -76,11 +73,10 @@ export const Navbar: React.FC<NavbarProps> = ({
 
           <button
             onClick={() => setActiveTab('signals')}
-            className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1.5 ${
-              activeTab === 'signals'
+            className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1.5 ${activeTab === 'signals'
                 ? 'bg-[#3C4044] text-[#FD7B41] shadow-sm border border-[#FD7B41]/30'
                 : 'text-[#DDDCDB]/70 hover:text-[#DDDCDB] hover:bg-[#3C4044]/40'
-            }`}
+              }`}
           >
             <Radio className="w-3.5 h-3.5" />
             Signals ({signalsCount})
@@ -88,11 +84,10 @@ export const Navbar: React.FC<NavbarProps> = ({
 
           <button
             onClick={() => setActiveTab('analyzer')}
-            className={`px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 ${
-              activeTab === 'analyzer'
+            className={`px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 ${activeTab === 'analyzer'
                 ? 'bg-[#FD7B41] text-[#1B1D1F] shadow-glow-orange'
                 : 'text-[#FD7B41] hover:bg-[#FD7B41]/10 border border-[#FD7B41]/30'
-            }`}
+              }`}
           >
             <Sparkles className="w-3.5 h-3.5" />
             AI Need Studio
