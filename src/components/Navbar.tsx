@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sparkles, BrainCircuit, Compass, Layers, Radio, Heart } from 'lucide-react';
+import { Sparkles, BrainCircuit } from 'lucide-react';
 
 interface NavbarProps {
   activeTab: string;
@@ -9,10 +9,7 @@ interface NavbarProps {
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
-  activeTab,
   setActiveTab,
-  signalsCount,
-  opportunitiesCount,
 }) => {
   return (
     <header className="sticky top-0 z-50 bg-[#1B1D1F]/90 backdrop-blur-md border-b border-[#3C4044] shadow-glow-dark">
@@ -36,76 +33,23 @@ export const Navbar: React.FC<NavbarProps> = ({
           </div>
         </div>
 
-        {/* Navigation Tabs */}
-        <nav className="hidden md:flex items-center gap-1.5 bg-[#26292D] p-1.5 rounded-xl border border-[#3C4044]">
-          <button
-            onClick={() => setActiveTab('opportunities')}
-            className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1.5 ${activeTab === 'opportunities'
-                ? 'bg-[#3C4044] text-[#FD7B41] shadow-sm border border-[#FD7B41]/30'
-                : 'text-[#DDDCDB]/70 hover:text-[#DDDCDB] hover:bg-[#3C4044]/40'
-              }`}
-          >
-            <Compass className="w-3.5 h-3.5" />
-            Opportunities ({opportunitiesCount})
-          </button>
-
-          <button
-            onClick={() => setActiveTab('clusters')}
-            className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1.5 ${activeTab === 'clusters'
-                ? 'bg-[#3C4044] text-[#FD7B41] shadow-sm border border-[#FD7B41]/30'
-                : 'text-[#DDDCDB]/70 hover:text-[#DDDCDB] hover:bg-[#3C4044]/40'
-              }`}
-          >
-            <Layers className="w-3.5 h-3.5" />
-            Clusters
-          </button>
-
-          <button
-            onClick={() => setActiveTab('empathy')}
-            className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1.5 ${activeTab === 'empathy'
-                ? 'bg-[#3C4044] text-[#FD7B41] shadow-sm border border-[#FD7B41]/30'
-                : 'text-[#DDDCDB]/70 hover:text-[#DDDCDB] hover:bg-[#3C4044]/40'
-              }`}
-          >
-            <Heart className="w-3.5 h-3.5" />
-            Empathy & HMW
-          </button>
-
-          <button
-            onClick={() => setActiveTab('signals')}
-            className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1.5 ${activeTab === 'signals'
-                ? 'bg-[#3C4044] text-[#FD7B41] shadow-sm border border-[#FD7B41]/30'
-                : 'text-[#DDDCDB]/70 hover:text-[#DDDCDB] hover:bg-[#3C4044]/40'
-              }`}
-          >
-            <Radio className="w-3.5 h-3.5" />
-            Signals ({signalsCount})
-          </button>
-
-          <button
-            onClick={() => setActiveTab('analyzer')}
-            className={`px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 ${activeTab === 'analyzer'
-                ? 'bg-[#FD7B41] text-[#1B1D1F] shadow-glow-orange'
-                : 'text-[#FD7B41] hover:bg-[#FD7B41]/10 border border-[#FD7B41]/30'
-              }`}
-          >
-            <Sparkles className="w-3.5 h-3.5" />
-            AI Need Studio
-          </button>
-        </nav>
-
-        {/* Right Status Badge */}
+        {/* Right Status & Quick Action */}
         <div className="flex items-center gap-3">
-          <div className="hidden lg:flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#26292D] border border-[#3C4044] text-xs text-[#EDBF9B]">
+          <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#26292D] border border-[#3C4044] text-xs text-[#EDBF9B]">
             <span className="w-2 h-2 rounded-full bg-[#FD7B41] animate-pulse"></span>
             <span>NLP Embedding Pipeline Active</span>
           </div>
 
           <button
-            onClick={() => setActiveTab('analyzer')}
-            className="md:hidden px-3.5 py-1.5 rounded-lg bg-[#FD7B41] text-[#1B1D1F] text-xs font-bold shadow-glow-orange"
+            onClick={() => {
+              setActiveTab('analyzer');
+              const el = document.getElementById('main-feed');
+              el?.scrollIntoView({ behavior: 'smooth' });
+            }}
+            className="px-4 py-2 rounded-xl bg-[#FD7B41] hover:bg-[#FD7B41]/90 text-[#1B1D1F] font-bold text-xs flex items-center gap-1.5 shadow-glow-orange transition-all hover:scale-105"
           >
-            + Analyze
+            <Sparkles className="w-3.5 h-3.5" />
+            <span>Launch AI Studio</span>
           </button>
         </div>
       </div>
